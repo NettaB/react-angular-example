@@ -1,25 +1,18 @@
 import angular from 'angular';
 
 import '../style/app.css';
-
-let app = () => {
-  return {
+import TodoListService from '../todo-list/todo-list.service';
+import TodoListComponent from '../todo-list/todo-list.component';
+const app = {
     template: require('./app.html'),
-    controller: 'AppCtrl',
-    controllerAs: 'app'
-  }
 };
 
-class AppCtrl {
-  constructor() {
-    this.url = 'https://github.com/preboot/angular-webpack';
-  }
-}
 
 const MODULE_NAME = 'app';
 
 angular.module(MODULE_NAME, [])
-  .directive('app', app)
-  .controller('AppCtrl', AppCtrl);
+  .component('app', app)
+    .factory('TodoListService',TodoListService)
+    .component('todoList', TodoListComponent);
 
 export default MODULE_NAME;
