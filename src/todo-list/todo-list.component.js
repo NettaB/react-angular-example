@@ -27,7 +27,10 @@ function TodoListCtrl (TodoListService) {
                 isDone: true
             }
         ];
-       console.log(TodoListService.getTasks());
+    };
+
+    const testFunc = () => {
+        console.log('hai!');
     }
 }
 

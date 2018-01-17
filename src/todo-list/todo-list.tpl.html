@@ -3,5 +3,6 @@
     <todo-item ng-repeat="task in $ctrl.tasks"
                title="task.title"
                content="task.content"
-               isDone="task.isDone"></todo-item>
+               is-done="task.isDone"
+               test-func="$ctrl.stringifiedFunc"></todo-item>
 </ul>

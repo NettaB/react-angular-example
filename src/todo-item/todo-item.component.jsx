@@ -3,6 +3,10 @@ import React from 'react';
 class TodoItem extends React.Component {
     Constructor() {
         this.dynamicClass = this.props.isDone? 'done': '';
+        console.log('constructor');
+    }
+    componentWillMount() {
+        console.log(this.props);
     }
     render() {
         return (
