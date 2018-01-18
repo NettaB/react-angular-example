@@ -1,18 +1,19 @@
 import React from 'react';
 
 class TodoItem extends React.Component {
-    Constructor() {
-        this.dynamicClass = this.props.isDone? 'done': '';
-        console.log('constructor');
-    }
     componentWillMount() {
-        console.log(this.props);
+        this.dynamicClass = this.props.isDone? 'done': '';
     }
+
+    markTaskDone() {
+        console.log(this);
+        this.props.TodoListService.markTaskDone(this.props.id);
+    };
+
     render() {
         return (
-            <li className={this.dynamicClass}>
-                <h3>{this.props.title}</h3>
-                <h5>{this.props.content}</h5>
+            <li className={this.dynamicClass} onClick={this.markTaskDone.bind(this)}>
+                <h5><b>{this.props.title}</b> -- {this.props.content}</h5>
             </li>
         )
     }

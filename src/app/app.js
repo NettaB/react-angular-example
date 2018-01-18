@@ -11,12 +11,8 @@ const app = {
 };
 
 
-const MODULE_NAME = 'app';
-
-angular.module(MODULE_NAME, [])
-  .component('app', app)
+angular.module('app', [])
+    .component('app', app)
     .factory('TodoListService',TodoListService)
     .component('todoList', TodoListComponent)
-    .component('todoItem', react2angular(TodoItem, ['title', 'content', 'isDone', 'testFunc']));
-
-export default MODULE_NAME;
+    .component('todoItem', react2angular(TodoItem, ['id', 'title', 'content', 'isDone'], ['TodoListService']));

@@ -1,8 +1,11 @@
-<h1>ToDo List</h1>
-<ul>
-    <todo-item ng-repeat="task in $ctrl.tasks"
-               title="task.title"
-               content="task.content"
-               is-done="task.isDone"
-               test-func="$ctrl.stringifiedFunc"></todo-item>
-</ul>
+<div class="todo-list">
+    <h1>ToDo List</h1>
+    <ul>
+        <todo-item ng-repeat="task in $ctrl.tasks"
+                   id="task.id"
+                   title="task.title"
+                   content="task.content"
+                   is-done="task.isDone"></todo-item>
+    </ul>
+</div>
+

@@ -1,26 +1,27 @@
 /* styles in src/style directory are applied to the whole page */
 body {
-  background: lightblue;
-  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+.todo-list {
+  background: lightgray;
+  margin: 10px;
+  border: 1px solid dimgrey;
+  padding: 20px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+ul {
+  padding-left: 0;
+}
+li {
+  display: flex;
+  align-items: center;
+  align-content: space-between;
+  width: 100%;
+  line-height: 1.5;
 }
 
-a {
-  color: #03A9F4;
-}
-
-main {
-  padding: 1em;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  margin-top: 50px;
-  display: block;
-}
-
-footer {
-  text-align: center;
-  font-size: 0.8em;
-}
-
-.true {
-  color: black;
+li.done {
+  text-decoration: line-through;
 }
