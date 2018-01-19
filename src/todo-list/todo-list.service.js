@@ -28,12 +28,12 @@ const TASKS = {
 
 function TodoListService() {
     return {
+        tasks: {},
         getTasks: function() {
-            return TASKS
+            this.tasks = TASKS;
         },
         markTaskDone: function(id) {
             TASKS[`${id}`].isDone = true;
-            console.log(TASKS[`${id}`])
         }
     }
 }

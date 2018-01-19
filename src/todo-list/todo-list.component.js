@@ -1,7 +1,8 @@
 function TodoListCtrl (TodoListService) {
     const ctrl = this;
     ctrl.$onInit = () => {
-        ctrl.tasks = TodoListService.getTasks();
+        TodoListService.getTasks();
+        ctrl.tasks = TodoListService.tasks;
     };
 }
 
