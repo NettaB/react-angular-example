@@ -1,22 +1,20 @@
 import React from 'react';
 
 class TodoItem extends React.Component {
-    componentWillMount() {
-        this.dynamicClass = this.props.isDone? 'done': '';
-    }
-
-    componentWillUpdate(newProps) {
-        console.log(newProps);
+    constructor(props){
+        super(props);
+        this.markTaskDone = this.markTaskDone.bind(this);
     }
 
     markTaskDone() {
-        this.props.TodoListService.markTaskDone(this.props.id);
+        this.props.markTaskDone(this.props.task.id);
     };
 
     render() {
         return (
-            <li className={this.props.isDone? 'done': ''} onClick={this.markTaskDone.bind(this)}>
-                <h5><b>{this.props.title}</b> -- {this.props.content}</h5>
+            <li className={this.props.task.isDone ? 'done': ''}
+                onClick={this.markTaskDone}>
+                <h5><b>{this.props.task.title}</b> -- {this.props.task.content}</h5>
             </li>
         )
     }

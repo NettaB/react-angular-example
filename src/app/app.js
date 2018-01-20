@@ -10,9 +10,8 @@ const app = {
     template: require('./app.html'),
 };
 
-
 angular.module('app', [])
     .component('app', app)
     .factory('TodoListService',TodoListService)
     .component('todoList', TodoListComponent)
-    .component('todoItem', react2angular(TodoItem, ['id', 'title', 'content', 'isDone'], ['TodoListService']));
+    .component('todoItem', react2angular(TodoItem, ['task', 'markTaskDone']));
