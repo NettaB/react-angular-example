@@ -3,7 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>Angular App</title>
-  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+  <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-firestore.js"></script>
+
+
+  <script>
+    var config = {
+      apiKey: "AIzaSyDBtt0XzujYjqyYLiywx5rszpNhr76dw4M",
+      authDomain: "test-api-9ee9d.firebaseapp.com",
+      databaseURL: "https://test-api-9ee9d.firebaseio.com",
+      projectId: "test-api-9ee9d",
+      storageBucket: "test-api-9ee9d.appspot.com",
+      messagingSenderId: "19232021403"
+    };
+    firebase.initializeApp(config);
+
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">

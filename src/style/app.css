@@ -25,3 +25,11 @@ li {
 li.done {
   text-decoration: line-through;
 }
+
+li.angular {
+  background-color: red;
+}
+
+li.react {
+  background-color: cyan;
+}

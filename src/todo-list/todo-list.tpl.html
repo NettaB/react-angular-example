@@ -3,8 +3,10 @@
     <ul>
         <todo-item ng-repeat="task in $ctrl.tasks"
                    task="task"
-                   mark-task-done="$ctrl.markTaskDone"></todo-item>
-        <li ng-repeat="task in $ctrl.tasks">{{task.title}}--{{task.isDone}}</li>
+                   mark-task-done="$ctrl.toggleTaskDone"></todo-item>
+        <li class="angular" ng-repeat="task in $ctrl.tasks" ng-class="{done: task.isDone}">
+          <h5><b>{{task.title}}</b> -- {{task.content}}</h5>
+        </li>
     </ul>
 </div>
 

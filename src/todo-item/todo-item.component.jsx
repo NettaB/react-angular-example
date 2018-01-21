@@ -10,9 +10,13 @@ class TodoItem extends React.Component {
         this.props.markTaskDone(this.props.task.id);
     };
 
+    componentWillReceiveProps(changes) {
+        console.log(changes);
+    }
+
     render() {
         return (
-            <li className={this.props.task.isDone ? 'done': ''}
+            <li className={this.props.task.isDone ? 'react done': 'react'}
                 onClick={this.markTaskDone}>
                 <h5><b>{this.props.task.title}</b> -- {this.props.task.content}</h5>
             </li>

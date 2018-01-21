@@ -1,39 +1,45 @@
 /**@inject*/
 const TASKS = {
-    1: {
-        id: 1,
+    't1': {
+        id: 't1',
         title: "wash dishes",
         content: "you haven't done them all week!",
         isDone: false
     },
-    2: {
-        id: 2,
+    't2': {
+        id: 't2',
         title: "take a shower",
         content: "you smell",
         isDone: false
     },
-    3: {
-        id: 3,
+    't3': {
+        id: 't3',
         title: "eat all the pizza",
         content: "the only task worth doing",
         isDone: false
     },
-    4: {
-        id: 4,
+    't4': {
+        id: 't4',
         title: "take over world",
         content: "easy peasy",
         isDone: true
     }
 };
 
-function TodoListService() {
+function TodoListService($http) {
     return {
         tasks: {},
         getTasks: function() {
-            this.tasks = TASKS;
+            return $http.get('https://test-api-9ee9d.firebaseio.com/tasks.json').then((res) => {
+                this.tasks = res.data
+            });
         },
-        markTaskDone: function(id) {
-            TASKS[`${id}`].isDone = true;
+        toggleTaskDone: function(id) {
+            const newTask = this.tasks[id];
+            newTask.isDone = !newTask.isDone;
+            return $http.put(`https://test-api-9ee9d.firebaseio.com/tasks/${id}.json`, newTask).then((res) => {
+                console.info(res);
+            })
         }
     }
 }
