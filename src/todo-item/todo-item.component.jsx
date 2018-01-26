@@ -10,10 +10,6 @@ class TodoItem extends React.Component {
         this.props.markTaskDone(this.props.task.id);
     };
 
-    componentWillReceiveProps(changes) {
-        console.log(changes);
-    }
-
     render() {
         return (
             <li className={this.props.task.isDone ? 'react done': 'react'}

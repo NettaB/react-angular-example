@@ -9,7 +9,9 @@ function TodoListCtrl (TodoListService) {
 
     ctrl.toggleTaskDone = (id) => {
         TodoListService.toggleTaskDone(id).then(() => {
-          ctrl.tasks = TodoListService.tasks;
+          TodoListService.getTasks().then(() => {
+            ctrl.tasks = TodoListService.tasks;
+          })
         });
     }
 }

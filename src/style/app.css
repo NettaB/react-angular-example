@@ -39,9 +39,9 @@ li.done {
 }
 
 li.angular {
-  background-color: red;
+  background-color: #DF2E31;
 }
 
 li.react {
-  background-color: cyan;
+  background-color: #00d8ff;
 }
