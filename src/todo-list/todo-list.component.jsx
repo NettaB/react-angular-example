@@ -9,12 +9,13 @@ class ReactTodoList extends React.Component {
     }
 
     componentWillMount() {
-        this.props.TodoListService.getTasks();
-        this.setState({tasks: this.props.TodoListService.tasks})
+        this.props.TodoListService.getTasks().then(() =>{
+          this.setState({tasks: this.props.TodoListService.tasks});
+        })
     }
 
     markTaskDone(id) {
-        this.props.TodoListService.markTaskDone(id);
+        this.props.TodoListService.toggleTaskDone(id);
         this.setState({tasks: this.props.TodoListService.tasks});
     }
 

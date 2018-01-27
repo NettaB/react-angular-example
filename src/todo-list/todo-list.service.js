@@ -1,41 +1,47 @@
 /**@inject*/
 const TASKS = {
-    1: {
-        id: 1,
-        title: "wash dishes",
-        content: "you haven't done them all week!",
-        isDone: false
-    },
-    2: {
-        id: 2,
-        title: "take a shower",
-        content: "you smell",
-        isDone: false
-    },
-    3: {
-        id: 3,
-        title: "eat all the pizza",
-        content: "the only task worth doing",
-        isDone: false
-    },
-    4: {
-        id: 4,
-        title: "take over world",
-        content: "easy peasy",
-        isDone: true
-    }
+  't1': {
+    id: 't1',
+    title: "wash dishes",
+    content: "you haven't done them all week!",
+    isDone: false
+  },
+  't2': {
+    id: 't2',
+    title: "take a shower",
+    content: "you smell",
+    isDone: false
+  },
+  't3': {
+    id: 't3',
+    title: "eat all the pizza",
+    content: "the only task worth doing",
+    isDone: false
+  },
+  't4': {
+    id: 't4',
+    title: "take over world",
+    content: "easy peasy",
+    isDone: true
+  }
 };
 
-function TodoListService() {
-    return {
-        tasks: {},
-        getTasks: function() {
-            this.tasks = TASKS;
-        },
-        markTaskDone: function(id) {
-            TASKS[`${id}`].isDone = true;
-        }
+function TodoListService($http) {
+  return {
+    tasks: {},
+    getTasks: function() {
+      return $http.get('https://test-api-9ee9d.firebaseio.com/tasks.json').then((res) => {
+        this.tasks = res.data
+      });
+    },
+    toggleTaskDone: function(id) {
+      const newTask = this.tasks[id];
+      newTask.isDone = !newTask.isDone;
+      return $http.put(`https://test-api-9ee9d.firebaseio.com/tasks/${id}.json`, newTask).then((res) => {
+        console.info(res);
+      })
     }
+  }
 }
 
 export default TodoListService;

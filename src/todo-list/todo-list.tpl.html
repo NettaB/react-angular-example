@@ -1,11 +1,11 @@
 <div class="todo-list">
-    <h1>ToDo List</h1>
+    <h1>Angular ToDo List</h1>
     <ul>
-        <todo-item ng-repeat="task in $ctrl.tasks"
-                   id="task.id"
-                   title="task.title"
-                   content="task.content"
-                   is-done="task.isDone"></todo-item>
+        <li ng-repeat="task in $ctrl.tasks"
+            ng-class="{done: task.isDone}"
+            ng-click="$ctrl.toggleTaskDone(task.id)">
+          <h5><b>{{task.title}}</b> -- {{task.content}}</h5>
+        </li>
     </ul>
 </div>
 
