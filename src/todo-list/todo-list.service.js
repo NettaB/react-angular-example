@@ -35,7 +35,7 @@ function TodoListService($http) {
             });
         },
         toggleTaskDone: function(id) {
-            const newTask = this.tasks[id];
+            const newTask = Object.assign({}, this.tasks[id]);
             newTask.isDone = !newTask.isDone;
             return $http.put(`https://test-api-9ee9d.firebaseio.com/tasks/${id}.json`, newTask).then((res) => {
                 console.info(res);
